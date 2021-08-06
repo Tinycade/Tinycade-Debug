@@ -1,6 +1,7 @@
 const Beholder = window['beholder-detection'];
 
 var debugText = "Hello world";
+var newMarker;
 
 function lerp(a,b, c, d, v) {
   return c + (d - c) * (v - a) / (b - a); 
@@ -47,7 +48,7 @@ function update() {
       var markerRotation = Beholder.getMarker(4).rotation;
 
       //id, location, size, rotation
-      var newMarker = new Square(markerID, markerLocation, markerSize, markerRotation);
+      newMarker = new Square(markerID, markerLocation, markerSize, markerRotation);
     }
     else{
       debugText = "hello world";
