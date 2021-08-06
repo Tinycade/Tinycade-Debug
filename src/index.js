@@ -49,6 +49,9 @@ function update() {
       //id, location, size, rotation
       var newMarker = new Square(markerID, markerLocation, markerSize, markerRotation);
     }
+    else{
+      debugText = "hello world";
+    }
   //}
 
   
