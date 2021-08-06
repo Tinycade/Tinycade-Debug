@@ -1,6 +1,9 @@
 class Square {
-    constructor(markerID) {
-        this.currentAngle = 0;
+    constructor(markerID, location, size, rotation) {
+        this.ID = markerID;
+        this.location = location;
+        this.size = size;
+        this.rotation = rotation;
         // this.pointOffsets = [
         //     Vec2.sub(this.center, p1),
         //     Vec2.sub(this.center, p2),
@@ -17,7 +20,7 @@ class Square {
     draw(ctx){
     ctx.beginPath();
     //x,y,width,height
-    ctx.rect(20, 20, 100, 100);
+    ctx.rect(this.location.x, this.location.y, this.size, this.size);
     ctx.stroke();
     }
 }
