@@ -64,14 +64,15 @@ function update() {
 
 function draw() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  drawDebug(ctx);
+  drawDebugText(ctx);
   
   ctx.lineCap = "round";
+  newMarker.draw(ctx);
 
  //marker1.draw(ctx);
 }
 
-function drawDebug() {
+function drawDebugText() {
   ctx.font = '48px serif';
   
   ctx.fillText(debugText, canvas.width / 2, 50);

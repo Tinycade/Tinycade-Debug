@@ -20,7 +20,7 @@ class Square {
     draw(ctx){
     ctx.beginPath();
     //x,y,width,height
-    ctx.rect(this.location.x, this.location.y, this.size, this.size);
+    ctx.rect(this.location.x, this.location.y, 100, 100);
     ctx.stroke();
     }
 }
