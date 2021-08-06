@@ -37,7 +37,7 @@ function update() {
     //for the markers that are present:
     if(Beholder.getMarker(i).present)
     {
-      console.log(Beholder.getMarker(i));
+      debugText = Beholder.getMarker(i);
       var markerID = Beholder.getMarker(i);
       var markerLocation = new Vec2(Beholder.getMarker(i).center); //vec2
 
