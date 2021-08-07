@@ -69,11 +69,20 @@ function draw() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   drawDebugText();
   drawCircle();
+  drawLine();
   
   ctx.lineCap = "round";
   //newMarker.draw(ctx);
 
  //marker1.draw(ctx);
+}
+
+function drawLine()
+{
+  ctx.beginPath();
+  ctx.moveTo(markerStartingLocation.x, markerStartingLocation.y);
+  ctx.lineTo(markerStartingLocation.x + vectorOffset.x, markerStartingLocation.y + vectorOffset.y,);
+  ctx.stroke();
 }
 
 function drawCircle()
