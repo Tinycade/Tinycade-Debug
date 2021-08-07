@@ -2,6 +2,10 @@ const Beholder = window['beholder-detection'];
 
 var debugText = "Hello world";
 var newMarker = new Square(0, new Vec2(100, 100), 5, 180);
+var markerStartingLocation = new Vec2(175, 100);
+
+var circleX = 200;
+var circleY = 200;
 
 function lerp(a,b, c, d, v) {
   return c + (d - c) * (v - a) / (b - a); 
@@ -40,12 +44,13 @@ function update() {
     {
       var markerID = Beholder.getMarker(4);
       var markerLocation = new Vec2(Beholder.getMarker(4).center); //vec2
-      debugText = JSON.stringify(markerLocation.x);
-
+      
+      var vectorOffset = Vec2.sub(markerStartingLocation, markerLocation);
+      debugText = JSON.stringify(vectorOffset.x);
       //var CenterCornerDiff = new Vec2(Beholder.getMarker(4).corners[0].x - Beholder.getMarker(4).center.x, Beholder.getMarker(4).corners[0].y - Beholder.getMarker(4).center.y); //vec2
       //var markerSize = Math.sqrt( CenterCornerDiff.x*CenterCornerDiff.x + CenterCornerDiff.y*CenterCornerDiff.y ); //diff
 
-      var markerRotation = Beholder.getMarker(4).rotation;
+      //var markerRotation = Beholder.getMarker(4).rotation;
 
       //id, location, size, rotation
       //newMarker = new Square(markerID, markerLocation, markerSize, markerRotation);
@@ -62,12 +67,22 @@ function update() {
 
 function draw() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  drawDebugText(ctx);
+  drawDebugText();
+  drawCircle();
   
   ctx.lineCap = "round";
-  newMarker.draw(ctx);
+  //newMarker.draw(ctx);
 
  //marker1.draw(ctx);
+}
+
+function drawCircle()
+{
+  ctx.beginPath();
+  //x,y,rad,startang,endang
+  ctx.arc(circleX, circleY, 25, 0, 2 * Math.PI);
+  ctx.stroke();
+  ctx.fill();
 }
 
 function drawDebugText() {
