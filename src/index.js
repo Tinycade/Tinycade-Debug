@@ -35,8 +35,8 @@ function update() {
   //check for each marker 0-9
   //for (let i = 0; i < 10; i++) {
     //for the markers that are present:
-    // if(Beholder.getMarker(4).present)
-    if(true)
+    if(Beholder.getMarker(4).present)
+    //if(true)
     {
       var markerID = Beholder.getMarker(4);
       var markerLocation = new Vec2(Beholder.getMarker(4).center); //vec2
