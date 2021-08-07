@@ -32,26 +32,23 @@ function update() {
   prevTime = currentTime;
 
   //update for game elements
-  
   //check for each marker 0-9
   //for (let i = 0; i < 10; i++) {
     //for the markers that are present:
-    if(Beholder.getMarker(4).present)
+    // if(Beholder.getMarker(4).present)
+    if(true)
     {
       var markerID = Beholder.getMarker(4);
       var markerLocation = new Vec2(Beholder.getMarker(4).center); //vec2
-      debugText = JSON.stringify(markerLocation.x.toFixed(0));
+      debugText = JSON.stringify(markerLocation.x.toFixed(2));
 
-      var CenterCornerDiff = new Vec2(Beholder.getMarker(4).corners[0].x - Beholder.getMarker(4).center.x, Beholder.getMarker(4).corners[0].y - Beholder.getMarker(4).center.y); //vec2
-      var markerSize = Math.sqrt( CenterCornerDiff.x*CenterCornerDiff.x + CenterCornerDiff.y*CenterCornerDiff.y ); //diff
+      //var CenterCornerDiff = new Vec2(Beholder.getMarker(4).corners[0].x - Beholder.getMarker(4).center.x, Beholder.getMarker(4).corners[0].y - Beholder.getMarker(4).center.y); //vec2
+      //var markerSize = Math.sqrt( CenterCornerDiff.x*CenterCornerDiff.x + CenterCornerDiff.y*CenterCornerDiff.y ); //diff
 
       var markerRotation = Beholder.getMarker(4).rotation;
 
       //id, location, size, rotation
       //newMarker = new Square(markerID, markerLocation, markerSize, markerRotation);
-    }
-    else{
-      debugText = "hello world";
     }
   //}
 
