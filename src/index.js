@@ -1,7 +1,7 @@
 const Beholder = window['beholder-detection'];
 
 var debugText = "Hello world";
-var newMarker;
+var newMarker = new Square(0, new Vec2(100, 100), 5, 180);
 
 function lerp(a,b, c, d, v) {
   return c + (d - c) * (v - a) / (b - a); 
@@ -38,9 +38,9 @@ function update() {
     //for the markers that are present:
     if(Beholder.getMarker(4).present)
     {
-      debugText = "marker present";
       var markerID = Beholder.getMarker(4);
       var markerLocation = new Vec2(Beholder.getMarker(4).center); //vec2
+      debugText = markerLocation;
 
       var CenterCornerDiff = new Vec2(Beholder.getMarker(4).corners[0].x - Beholder.getMarker(4).center.x, Beholder.getMarker(4).corners[0].y - Beholder.getMarker(4).center.y); //vec2
       var markerSize = Math.sqrt( CenterCornerDiff.x*CenterCornerDiff.x + CenterCornerDiff.y*CenterCornerDiff.y ); //diff
@@ -48,7 +48,7 @@ function update() {
       var markerRotation = Beholder.getMarker(4).rotation;
 
       //id, location, size, rotation
-      newMarker = new Square(markerID, markerLocation, markerSize, markerRotation);
+      //newMarker = new Square(markerID, markerLocation, markerSize, markerRotation);
     }
     else{
       debugText = "hello world";
