@@ -3,6 +3,7 @@ const Beholder = window['beholder-detection'];
 var debugText = "Hello world";
 var newMarker = new Square(0, new Vec2(100, 100), 5, 180);
 var markerStartingLocation = new Vec2(175, 100);
+var vectorOffset;
 
 var circleX = 200;
 var circleY = 200;
@@ -45,7 +46,7 @@ function update() {
       var markerID = Beholder.getMarker(4);
       var markerLocation = new Vec2(Beholder.getMarker(4).center); //vec2
       
-      var vectorOffset = Vec2.sub(markerStartingLocation, markerLocation);
+      vectorOffset = Vec2.sub(markerStartingLocation, markerLocation);
       debugText = JSON.stringify(vectorOffset);
       //var CenterCornerDiff = new Vec2(Beholder.getMarker(4).corners[0].x - Beholder.getMarker(4).center.x, Beholder.getMarker(4).corners[0].y - Beholder.getMarker(4).center.y); //vec2
       //var markerSize = Math.sqrt( CenterCornerDiff.x*CenterCornerDiff.x + CenterCornerDiff.y*CenterCornerDiff.y ); //diff
@@ -69,7 +70,7 @@ function draw() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   drawDebugText();
   drawCircle();
-  drawLine();
+  //drawLine();
   
   ctx.lineCap = "round";
   //newMarker.draw(ctx);
@@ -77,13 +78,13 @@ function draw() {
  //marker1.draw(ctx);
 }
 
-function drawLine()
-{
-  ctx.beginPath();
-  ctx.moveTo(markerStartingLocation.x, markerStartingLocation.y);
-  ctx.lineTo(markerStartingLocation.x + vectorOffset.x, markerStartingLocation.y + vectorOffset.y,);
-  ctx.stroke();
-}
+// function drawLine()
+// {
+//   ctx.beginPath();
+//   ctx.moveTo(markerStartingLocation.x, markerStartingLocation.y);
+//   ctx.lineTo(markerStartingLocation.x + vectorOffset.x, markerStartingLocation.y + vectorOffset.y,);
+//   ctx.stroke();
+// }
 
 function drawCircle()
 {
