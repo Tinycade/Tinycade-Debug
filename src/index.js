@@ -43,6 +43,7 @@ function update() {
     if(Beholder.getMarker(4).present)
     //if(true)
     {
+      console.log("present");
       var markerID = Beholder.getMarker(4);
       var markerLocation = new Vec2(Beholder.getMarker(4).center); //vec2
       
