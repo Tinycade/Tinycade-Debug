@@ -47,7 +47,7 @@ function update() {
       var markerLocation = new Vec2(Beholder.getMarker(4).center); //vec2
       
       vectorOffset = Vec2.sub(markerStartingLocation, markerLocation);
-      debugText = JSON.stringify(vectorOffset);
+      debugText = JSON.stringify(markerLocation);
       //var CenterCornerDiff = new Vec2(Beholder.getMarker(4).corners[0].x - Beholder.getMarker(4).center.x, Beholder.getMarker(4).corners[0].y - Beholder.getMarker(4).center.y); //vec2
       //var markerSize = Math.sqrt( CenterCornerDiff.x*CenterCornerDiff.x + CenterCornerDiff.y*CenterCornerDiff.y ); //diff
 
@@ -98,7 +98,7 @@ function drawCircle()
 function drawDebugText() {
   ctx.font = '48px serif';
   
-  ctx.fillText(debugText, canvas.width / 2, 50);
+  ctx.fillText(debugText, canvas.width - 200, 50);
 }
 
 window.onload = init;
