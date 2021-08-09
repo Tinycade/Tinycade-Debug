@@ -112,8 +112,8 @@ function drawDebugText() {
 }
 
 function resetCenter(){
-  markerStartingLocation.x = joystick1.center.x;
-  markerStartingLocation.y = joystick1.center.y;
+  markerStartingLocation.x = Math.round((joystick1.center.x * 100) / 100); //vec2
+  markerStartingLocation.y = Math.round((joystick1.center.y * 100) / 100);
   console.log("yup");
 }
 
