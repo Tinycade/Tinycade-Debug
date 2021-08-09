@@ -1,12 +1,17 @@
 const Beholder = window['beholder-detection'];
 
-var newMarker = new Square(0, new Vec2(100, 100), 5, 180);
+//var newMarker = new Square(0, new Vec2(100, 100), 5, 180);
+//joystick center
 var markerStartingLocation = new Vec2(175, 100);
-var vectorOffset;
+//offset from center
+var vectorOffset = new Vec2(0,0);
+//marker location
 var markerLocationX;
 var markerLocationY;
+//markerID
 var joystick1;
 
+//test drawing
 var circleX = 200;
 var circleY = 200;
 
@@ -31,7 +36,6 @@ function init() {
 let prevTime = Date.now();
 
 function update() {
-
   //beholder update
   Beholder.update();
 
@@ -44,23 +48,24 @@ function update() {
   //check for each marker 0-9
   //for (let i = 0; i < 10; i++) {
     //for the markers that are present:
-    if(joystick1.present)
-    //if(true)
-    {
-      markerLocationX = Math.round((joystick1.center.x * 100) / 100); //vec2
-      markerLocationY = Math.round((joystick1.center.y * 100) / 100);
-      
-      //vectorOffset = Vec2.sub(markerStartingLocation.x, markerLocation.x);
+  if(joystick1.present)
+  //if(true)
+  {
+    markerLocationX = Math.round((joystick1.center.x * 100) / 100); //vec2
+    markerLocationY = Math.round((joystick1.center.y * 100) / 100);
+    
+    vectorOffset.x = markerLocationX - markerStartingLocation.x;
+    vectorOffset.y = markerLocationY - markerStartingLocation.y;
 
-      //debugText = Math.round(markerLocation * 100) / 100;
-      //var CenterCornerDiff = new Vec2(Beholder.getMarker(4).corners[0].x - Beholder.getMarker(4).center.x, Beholder.getMarker(4).corners[0].y - Beholder.getMarker(4).center.y); //vec2
-      //var markerSize = Math.sqrt( CenterCornerDiff.x*CenterCornerDiff.x + CenterCornerDiff.y*CenterCornerDiff.y ); //diff
+    //debugText = Math.round(markerLocation * 100) / 100;
+    //var CenterCornerDiff = new Vec2(Beholder.getMarker(4).corners[0].x - Beholder.getMarker(4).center.x, Beholder.getMarker(4).corners[0].y - Beholder.getMarker(4).center.y); //vec2
+    //var markerSize = Math.sqrt( CenterCornerDiff.x*CenterCornerDiff.x + CenterCornerDiff.y*CenterCornerDiff.y ); //diff
 
-      //var markerRotation = Beholder.getMarker(4).rotation;
+    //var markerRotation = Beholder.getMarker(4).rotation;
 
-      //id, location, size, rotation
-      //newMarker = new Square(markerID, markerLocation, markerSize, markerRotation);
-    }
+    //id, location, size, rotation
+    //newMarker = new Square(markerID, markerLocation, markerSize, markerRotation);
+  }
   //}
 
   
@@ -103,7 +108,13 @@ function drawCircle()
 function drawDebugText() {
   ctx.font = '35px serif';
   
-  ctx.fillText("X:" + markerLocationX + " Y:" + markerLocationY, canvas.width - 200, 50);
+  ctx.fillText("X:" + vectorOffset.x + " Y:" + vectorOffset.y, canvas.width - 200, 50);
+}
+
+function resetCenter(){
+  markerStartingLocation.x = joystick1.x;
+  markerStartingLocation.y = joystick1.y;
+  console.log("yup");
 }
 
 window.onload = init;
