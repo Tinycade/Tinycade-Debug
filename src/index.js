@@ -66,7 +66,9 @@ function update() {
     //id, location, size, rotation
     //newMarker = new Square(markerID, markerLocation, markerSize, markerRotation);
   }
-  //}
+  
+  circleX -= vectorOffset.x;
+  circleY -= vectorOffset.y;
 
   
   //draw a rectangle for each one we have
