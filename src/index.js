@@ -47,8 +47,8 @@ function update() {
     if(joystick1.present)
     //if(true)
     {
-      markerLocationX = (joystick1.center.x); //vec2
-      markerLocationY = (joystick1.center.y);
+      markerLocationX = Math.round((joystick1.center.x * 100) / 100); //vec2
+      markerLocationY = Math.round((joystick1.center.y * 100) / 100);
       
       //vectorOffset = Vec2.sub(markerStartingLocation.x, markerLocation.x);
 
