@@ -67,8 +67,8 @@ function update() {
     //newMarker = new Square(markerID, markerLocation, markerSize, markerRotation);
   }
   
-  circleX -= vectorOffset.x;
-  circleY -= vectorOffset.y;
+  circleX -= vectorOffset.x * 0.1;
+  circleY += vectorOffset.y * 0.1;
 
   
   //draw a rectangle for each one we have
