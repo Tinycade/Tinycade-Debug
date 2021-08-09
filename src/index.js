@@ -48,7 +48,7 @@ function update() {
       var markerLocation = new Vec2(Beholder.getMarker(4).center); //vec2
       
       vectorOffset = Vec2.sub(markerStartingLocation.x, markerLocation.x);
-      debugText = Math.round(markerLocation.x * 100) / 100;
+      debugText = Math.round(300 * 100) / 100;
       //var CenterCornerDiff = new Vec2(Beholder.getMarker(4).corners[0].x - Beholder.getMarker(4).center.x, Beholder.getMarker(4).corners[0].y - Beholder.getMarker(4).center.y); //vec2
       //var markerSize = Math.sqrt( CenterCornerDiff.x*CenterCornerDiff.x + CenterCornerDiff.y*CenterCornerDiff.y ); //diff
 
