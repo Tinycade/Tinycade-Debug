@@ -1,6 +1,5 @@
 const Beholder = window['beholder-detection'];
 
-var debugText = "Hello world";
 var newMarker = new Square(0, new Vec2(100, 100), 5, 180);
 var markerStartingLocation = new Vec2(175, 100);
 var vectorOffset;
@@ -46,7 +45,7 @@ function update() {
     if(joystick1.present)
     //if(true)
     {
-      var markerLocation = (joystick1.center.x); //vec2
+      var markerLocation = (joystick1.center); //vec2
       
       //vectorOffset = Vec2.sub(markerStartingLocation.x, markerLocation.x);
 
@@ -101,7 +100,7 @@ function drawCircle()
 function drawDebugText() {
   ctx.font = '48px serif';
   
-  ctx.fillText(debugText, canvas.width - 200, 50);
+  ctx.fillText("X:" + markerLocation.x + " Y:" + markerLocation.y, canvas.width - 200, 50);
 }
 
 window.onload = init;
