@@ -67,9 +67,12 @@ function update() {
     //newMarker = new Square(markerID, markerLocation, markerSize, markerRotation);
   }
   
-  if(vectorOffset.x < 3 && vectorOffset.y < 3)
+  if(vectorOffset.x > 3 || vectorOffset.x < -3)
   {
     circleX -= vectorOffset.x * 0.1;
+  }
+  if(vectorOffset.y > 3 || vectorOffset.y < -3)
+  {
     circleY += vectorOffset.y * 0.1;
   }
 
