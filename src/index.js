@@ -4,6 +4,7 @@ var debugText = "Hello world";
 var newMarker = new Square(0, new Vec2(100, 100), 5, 180);
 var markerStartingLocation = new Vec2(175, 100);
 var vectorOffset;
+var joystick1;
 
 var circleX = 200;
 var circleY = 200;
@@ -20,6 +21,8 @@ function init() {
   canvas = document.getElementById("game-canvas");
   ctx = canvas.getContext("2d");
   ctx.textAlign = "center";
+
+  joystick1 = Beholder.getMarker(4);
 
   requestAnimationFrame(update);
 }
@@ -40,15 +43,14 @@ function update() {
   //check for each marker 0-9
   //for (let i = 0; i < 10; i++) {
     //for the markers that are present:
-    if(Beholder.getMarker(4).present)
+    if(joystick1.present)
     //if(true)
     {
-      console.log("present");
-      var markerID = Beholder.getMarker(4);
-      var markerLocation = new Vec2(Beholder.getMarker(4).center); //vec2
+      var markerLocation = (joystick1.center.x); //vec2
       
-      vectorOffset = Vec2.sub(markerStartingLocation.x, markerLocation.x);
-      debugText = Math.round(300 * 100) / 100;
+      //vectorOffset = Vec2.sub(markerStartingLocation.x, markerLocation.x);
+
+      debugText = Math.round(markerLocation * 100) / 100;
       //var CenterCornerDiff = new Vec2(Beholder.getMarker(4).corners[0].x - Beholder.getMarker(4).center.x, Beholder.getMarker(4).corners[0].y - Beholder.getMarker(4).center.y); //vec2
       //var markerSize = Math.sqrt( CenterCornerDiff.x*CenterCornerDiff.x + CenterCornerDiff.y*CenterCornerDiff.y ); //diff
 
