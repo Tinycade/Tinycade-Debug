@@ -19,7 +19,7 @@ var markerLocationY;
 var markerLocationX2;
 var markerLocationY2;
 //markerID
-var joystick1;
+var joystick;
 var joystick2;
 
 //test drawing
@@ -39,7 +39,8 @@ function init() {
   ctx = canvas.getContext("2d");
   ctx.textAlign = "center";
 
-  joystick1 = Beholder.getMarker(markerNum);
+  joystick = Beholder.getMarker(markerNum);
+  joystick2 = Beholder.getMarker(markerNum2);
 
   requestAnimationFrame(update);
 }
@@ -59,23 +60,21 @@ function update() {
   //check for each marker 0-9
   //for (let i = 0; i < 10; i++) {
     //for the markers that are present:
-  if(joystick1.present)
-  //if(true)
+  if(joystick.present)
   {
-    markerLocationX = Math.round((joystick1.center.x * 100) / 100); //vec2
-    markerLocationY = Math.round((joystick1.center.y * 100) / 100);
+    markerLocationX = Math.round((joystick.center.x * 100) / 100); //vec2
+    markerLocationY = Math.round((joystick.center.y * 100) / 100);
     
     vectorOffset.x = markerLocationX - markerStartingLocation.x;
     vectorOffset.y = markerLocationY - markerStartingLocation.y;
-
-    //debugText = Math.round(markerLocation * 100) / 100;
-    //var CenterCornerDiff = new Vec2(Beholder.getMarker(4).corners[0].x - Beholder.getMarker(4).center.x, Beholder.getMarker(4).corners[0].y - Beholder.getMarker(4).center.y); //vec2
-    //var markerSize = Math.sqrt( CenterCornerDiff.x*CenterCornerDiff.x + CenterCornerDiff.y*CenterCornerDiff.y ); //diff
-
-    //var markerRotation = Beholder.getMarker(4).rotation;
-
-    //id, location, size, rotation
-    //newMarker = new Square(markerID, markerLocation, markerSize, markerRotation);
+  }
+  if(joystick2.present)
+  {
+    markerLocationX2 = Math.round((joystick2.center.x * 100) / 100); //vec2
+    markerLocationY2 = Math.round((joystick2.center.y * 100) / 100);
+    
+    vectorOffset2.x = markerLocationX2 - markerStartingLocation2.x;
+    vectorOffset2.y = markerLocationY2 - markerStartingLocation2.y;
   }
   
   if(vectorOffset.x > 3 || vectorOffset.x < -3)
@@ -99,7 +98,7 @@ function update() {
 function draw() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   drawDebugText();
-  drawCircle();
+  //drawCircle();
   drawLine();
   
   ctx.lineCap = "round";
@@ -128,13 +127,17 @@ function drawCircle()
 function drawDebugText() {
   ctx.font = '35px serif';
   
-  ctx.fillText("X:" + vectorOffset.x + " Y:" + vectorOffset.y, canvas.width - 200, 50);
+  //ctx.fillText("X:" + vectorOffset.x + " Y:" + vectorOffset.y, canvas.width - 200, 50);
+
+  ctx.fillText("X:" + markerLocationX2 + " Y:" + markerLocationY2, canvas.width - 200, 50);
 }
 
 function resetCenter(){
-  markerStartingLocation.x = Math.round((joystick1.center.x * 100) / 100); //vec2
-  markerStartingLocation.y = Math.round((joystick1.center.y * 100) / 100);
-  console.log("yup");
+  markerStartingLocation.x = Math.round((joystick.center.x * 100) / 100); //vec2
+  markerStartingLocation.y = Math.round((joystick.center.y * 100) / 100);
+  
+  markerStartingLocation2.x = Math.round((joystick2.center.x * 100) / 100); //vec2
+  markerStartingLocation2.y = Math.round((joystick2.center.y * 100) / 100);
 }
 
 window.onload = init;
