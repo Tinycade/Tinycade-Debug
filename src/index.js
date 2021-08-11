@@ -6,7 +6,7 @@ var markerStartingLocation = new Vec2(175, 100);
 var markerNum = 1;
 
 var markerStartingLocation2 = new Vec2(175, 100);
-var markerNum2 = 1;
+var markerNum2 = 2;
 
 //offset from center
 var vectorOffset = new Vec2(0,0);
