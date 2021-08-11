@@ -112,7 +112,7 @@ function drawLine()
 {
   ctx.beginPath();
   ctx.moveTo(markerStartingLocation.x, markerStartingLocation.y);
-  ctx.lineTo(markerStartingLocation.x + vectorOffset.x, markerStartingLocation.y + vectorOffset.y,);
+  ctx.lineTo(markerStartingLocation.x - vectorOffset.x, markerStartingLocation.y + vectorOffset.y,);
   ctx.stroke();
 }
 
