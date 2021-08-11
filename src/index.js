@@ -100,7 +100,7 @@ function draw() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   drawDebugText();
   drawCircle();
-  //drawLine();
+  drawLine();
   
   ctx.lineCap = "round";
   //newMarker.draw(ctx);
