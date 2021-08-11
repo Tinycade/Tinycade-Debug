@@ -3,6 +3,7 @@ const Beholder = window['beholder-detection'];
 //var newMarker = new Square(0, new Vec2(100, 100), 5, 180);
 //joystick center
 var markerStartingLocation = new Vec2(175, 100);
+var markerNum1 = 1;
 //offset from center
 var vectorOffset = new Vec2(0,0);
 //marker location
@@ -28,7 +29,7 @@ function init() {
   ctx = canvas.getContext("2d");
   ctx.textAlign = "center";
 
-  joystick1 = Beholder.getMarker(4);
+  joystick1 = Beholder.getMarker(markerNum1);
 
   requestAnimationFrame(update);
 }
