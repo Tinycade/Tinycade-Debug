@@ -5,7 +5,7 @@ const Beholder = window['beholder-detection'];
 var markerStartingLocation = new Vec2(175, 100);
 var markerNum = 1;
 
-var markerStartingLocation2 = new Vec2(175, 100);
+var markerStartingLocation2 = new Vec2(260, 100);
 var markerNum2 = 2;
 
 //offset from center
@@ -112,6 +112,9 @@ function drawLine()
   ctx.beginPath();
   ctx.moveTo(markerStartingLocation.x, markerStartingLocation.y);
   ctx.lineTo(markerStartingLocation.x - vectorOffset.x, markerStartingLocation.y + vectorOffset.y,);
+
+  ctx.moveTo(markerStartingLocation2.x, markerStartingLocation2.y);
+  ctx.lineTo(markerStartingLocation2.x - vectorOffset2.x, markerStartingLocation2.y + vectorOffset2.y,);
   ctx.stroke();
 }
 
