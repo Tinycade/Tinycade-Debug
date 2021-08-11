@@ -3,14 +3,24 @@ const Beholder = window['beholder-detection'];
 //var newMarker = new Square(0, new Vec2(100, 100), 5, 180);
 //joystick center
 var markerStartingLocation = new Vec2(175, 100);
-var markerNum1 = 1;
+var markerNum = 1;
+
+var markerStartingLocation2 = new Vec2(175, 100);
+var markerNum2 = 1;
+
 //offset from center
 var vectorOffset = new Vec2(0,0);
+var vectorOffset2 = new Vec2(0,0);
+
 //marker location
 var markerLocationX;
 var markerLocationY;
+
+var markerLocationX2;
+var markerLocationY2;
 //markerID
 var joystick1;
+var joystick2;
 
 //test drawing
 var circleX = 200;
@@ -29,7 +39,7 @@ function init() {
   ctx = canvas.getContext("2d");
   ctx.textAlign = "center";
 
-  joystick1 = Beholder.getMarker(markerNum1);
+  joystick1 = Beholder.getMarker(markerNum);
 
   requestAnimationFrame(update);
 }
@@ -98,13 +108,13 @@ function draw() {
  //marker1.draw(ctx);
 }
 
-// function drawLine()
-// {
-//   ctx.beginPath();
-//   ctx.moveTo(markerStartingLocation.x, markerStartingLocation.y);
-//   ctx.lineTo(markerStartingLocation.x + vectorOffset.x, markerStartingLocation.y + vectorOffset.y,);
-//   ctx.stroke();
-// }
+function drawLine()
+{
+  ctx.beginPath();
+  ctx.moveTo(markerStartingLocation.x, markerStartingLocation.y);
+  ctx.lineTo(markerStartingLocation.x + vectorOffset.x, markerStartingLocation.y + vectorOffset.y,);
+  ctx.stroke();
+}
 
 function drawCircle()
 {
